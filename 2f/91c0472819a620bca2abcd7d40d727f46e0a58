@@ -1,0 +1,19 @@
+.github/dependabot.yml
+  s_1b94a262b63993::t_f741d02ef33076 2-15,19-22,36-39,44-49
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.10",
+  "base_commit_sha": "2f91c0472819a620bca2abcd7d40d727f46e0a58",
+  "prompts": {},
+  "sessions": {
+    "s_1b94a262b63993": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "58e416c0-4e8a-4407-add4-e382038720e1",
+        "model": "claude-fable-5"
+      },
+      "human_author": "Sebastian Messingfeld <sebastian@messeb.com>"
+    }
+  }
+}
