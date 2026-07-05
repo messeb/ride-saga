@@ -14,10 +14,15 @@ import org.apache.kafka.clients.producer.ProducerConfig
 import org.apache.kafka.clients.producer.ProducerRecord
 import org.apache.kafka.common.serialization.StringDeserializer
 import org.apache.kafka.common.serialization.StringSerializer
+import org.awaitility.Awaitility.await
 import org.junit.jupiter.api.AfterAll
 import org.junit.jupiter.api.Assertions.assertEquals
+import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.Test
+import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.boot.test.context.SpringBootTest
+import org.springframework.kafka.config.KafkaListenerEndpointRegistry
+import org.springframework.kafka.listener.ConcurrentMessageListenerContainer
 import org.springframework.test.context.DynamicPropertyRegistry
 import org.springframework.test.context.DynamicPropertySource
 import org.testcontainers.junit.jupiter.Container
@@ -36,6 +41,19 @@ import java.util.UUID
 @Testcontainers
 @SpringBootTest
 class DriverMatchingIntegrationTest {
+
+    @Autowired
+    private lateinit var listenerRegistry: KafkaListenerEndpointRegistry
+
+    /** Container health does not mean consumers are ready — wait for partition assignment. */
+    @BeforeEach
+    fun waitUntilListenersAreAssigned() {
+        await().atMost(Duration.ofSeconds(120)).until {
+            listenerRegistry.listenerContainers.all { container ->
+                (container as ConcurrentMessageListenerContainer<*, *>).assignedPartitions?.isNotEmpty() == true
+            }
+        }
+    }
 
     @Test
     fun `assigns a driver to a healthy ride request`() {
@@ -140,6 +158,7 @@ class DriverMatchingIntegrationTest {
             registry.add("spring.kafka.bootstrap-servers") { kafka.bootstrapServers }
             registry.add("spring.kafka.properties.schema.registry.url") { REGISTRY }
             registry.add("management.tracing.enabled") { false }
+            registry.add("spring.kafka.listener.concurrency") { 1 }
         }
     }
 }
