@@ -1,0 +1,42 @@
+.github/ISSUE_TEMPLATE/feature_request.yml
+  s_1b94a262b63993::t_389ca3735f377e 1-22
+CONTRIBUTING.md
+  s_1b94a262b63993::t_d1ddee1e4056de 1-63
+.github/ISSUE_TEMPLATE/bug_report.yml
+  s_1b94a262b63993::t_9fd1b1c013c7e5 1-44
+LICENSE
+  s_1b94a262b63993::t_3a07be0e865041 1-202
+README.md
+  s_1b94a262b63993::t_8cad08974524db 1-39
+.gitignore
+  s_1b94a262b63993::t_55b3c15dfa29d4 1-21
+.editorconfig
+  s_1b94a262b63993::t_ad63ef7ab19aaa 1-22
+.github/PULL_REQUEST_TEMPLATE.md
+  s_1b94a262b63993::t_3e1997cf2dc3b8 1-17
+SECURITY.md
+  s_1b94a262b63993::t_dd3867e91c46a7 1-26
+CODE_OF_CONDUCT.md
+  s_1b94a262b63993::t_3a07be0e865041 1-39,41-85
+  s_1b94a262b63993::t_faded728cb2c12 40
+.github/CODEOWNERS
+  s_1b94a262b63993::t_472f2decc09784 1-6
+.github/ISSUE_TEMPLATE/config.yml
+  s_1b94a262b63993::t_e1babd2e43187c 1-5
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.10",
+  "base_commit_sha": "108e86625307c0717a8a5e20c6d7d7499f93bb84",
+  "prompts": {},
+  "sessions": {
+    "s_1b94a262b63993": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "58e416c0-4e8a-4407-add4-e382038720e1",
+        "model": "claude-fable-5"
+      },
+      "human_author": "Sebastian Messingfeld <sebastian@messeb.com>"
+    }
+  }
+}
