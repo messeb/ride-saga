@@ -19,6 +19,18 @@ echo "==> building jars"
 echo "==> starting the stack"
 docker compose up -d --build --wait
 
+echo "==> waiting for all consumer groups to be stable"
+for group in booking-service driver-matching-service payment-service notification-service; do
+  for _ in $(seq 1 60); do
+    state=$(docker compose exec -T kafka /opt/kafka/bin/kafka-consumer-groups.sh \
+      --bootstrap-server localhost:9092 --describe --group "$group" --state 2>/dev/null \
+      | awk 'NR==2 {print $5}') || state=""
+    [ "$state" = "Stable" ] && break
+    sleep 2
+  done
+  echo "    $group: ${state:-unknown}"
+done
+
 echo "==> happy path: ride must reach CONFIRMED"
 ./scripts/demo.sh | tee /tmp/e2e-happy.log
 grep -q "CONFIRMED" /tmp/e2e-happy.log

@@ -29,6 +29,9 @@ spring:
       value-deserializer: io.confluent.kafka.serializers.KafkaAvroDeserializer
       properties:
         specific.avro.reader: true
+        # incremental rebalancing: late-joining containers no longer trigger
+        # stop-the-world revocations across the whole group
+        partition.assignment.strategy: org.apache.kafka.clients.consumer.CooperativeStickyAssignor
     listener:
       # commit after each successfully processed record — smallest at-least-once redelivery window
       ack-mode: record
