@@ -1,0 +1,6 @@
+# Default owners for everything in the repo
+* @messeb
+
+# Event contracts are the public API — schema changes need explicit owner review
+/contracts/ @messeb
+/docs/events.md @messeb

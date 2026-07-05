@@ -1,0 +1,44 @@
+name: Bug report
+description: Something does not work as documented
+title: "[bug]: "
+labels: ["bug"]
+body:
+  - type: textarea
+    id: what-happened
+    attributes:
+      label: What happened?
+      description: What did you expect and what happened instead?
+      placeholder: "make demo hangs after RideRequested is published..."
+    validations:
+      required: true
+  - type: textarea
+    id: reproduce
+    attributes:
+      label: Steps to reproduce
+      placeholder: |
+        1. make up
+        2. make demo
+        3. ...
+    validations:
+      required: true
+  - type: dropdown
+    id: component
+    attributes:
+      label: Component
+      options:
+        - booking-service
+        - driver-matching-service
+        - payment-service
+        - notification-service
+        - contracts / schemas
+        - docker-compose stack
+        - CI / release pipeline
+        - docs
+    validations:
+      required: true
+  - type: textarea
+    id: logs
+    attributes:
+      label: Relevant logs
+      description: Output of `docker compose logs <service>` or Gradle. Automatically rendered as code.
+      render: shell
