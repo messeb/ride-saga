@@ -1,0 +1,68 @@
+services/booking-service/src/main/kotlin/com/messeb/ridesaga/booking/config/KafkaConfig.kt
+  s_1b94a262b63993::t_010a7fa53229af 1-27,29
+  s_1b94a262b63993::t_e1dd8857926e6f 28
+common/src/test/kotlin/com/messeb/ridesaga/common/EventPublisherTest.kt
+  s_1b94a262b63993::t_92c5f53c9104d0 20,22
+build-logic/src/main/kotlin/buildlogic.spring-boot-service.gradle.kts
+  s_1b94a262b63993::t_8ded6eaa37e996 9
+services/booking-service/src/main/resources/db/migration/V1__create_rides.sql
+  s_1b94a262b63993::t_5f967ce0e2fbff 1-14
+common/src/main/kotlin/com/messeb/ridesaga/common/EventPublisher.kt
+  s_1b94a262b63993::t_b5f4dd2e45249b 18,25-26
+services/booking-service/src/test/kotlin/com/messeb/ridesaga/booking/application/RideServiceTest.kt
+  s_1b94a262b63993::t_c0d8f8ac8035c1 1-30,32-99
+  s_1b94a262b63993::t_f53035bdce796a 31
+gradle/libs.versions.toml
+  s_1b94a262b63993::t_bfb9b9919b04ba 29
+services/booking-service/src/main/resources/application.yml
+  s_1b94a262b63993::t_f97644b22c1e44 1-61
+services/booking-service/src/test/kotlin/com/messeb/ridesaga/booking/domain/RideTest.kt
+  s_1b94a262b63993::t_5bbf39e6f10b13 1-45,50-74
+  s_1b94a262b63993::t_e1dd8857926e6f 46-49
+services/booking-service/src/main/kotlin/com/messeb/ridesaga/booking/domain/Ride.kt
+  s_1b94a262b63993::t_e1dd8857926e6f 59-61
+  s_1b94a262b63993::t_630de20a583035 1-58,62-76
+services/booking-service/src/main/kotlin/com/messeb/ridesaga/booking/api/CorrelationIdFilter.kt
+  s_1b94a262b63993::t_6484d283ba8a6b 1-34
+services/booking-service/build.gradle.kts
+  s_1b94a262b63993::t_1579e81ea780b2 3
+  s_1b94a262b63993::t_6b74e125b21f7a 15
+  s_1b94a262b63993::t_50c182e281adf1 10
+services/booking-service/src/main/kotlin/com/messeb/ridesaga/booking/api/RideController.kt
+  s_1b94a262b63993::t_2683aa2b580812 1-73
+services/booking-service/src/test/kotlin/com/messeb/ridesaga/booking/BookingServiceIntegrationTest.kt
+  s_1b94a262b63993::t_bc771fb4ebae1b 105
+  s_1b94a262b63993::t_247b9dcf8abdd1 49,56-69
+  s_1b94a262b63993::t_84c81e8bad6260 25
+  s_1b94a262b63993::t_50d0866846dc50 1-24,26-27,29-48,50-55,70-104,106-180
+  s_1b94a262b63993::t_30022f07c28a49 28
+services/booking-service/src/main/kotlin/com/messeb/ridesaga/booking/messaging/BookingSagaListener.kt
+  s_1b94a262b63993::t_08f55079d152b7 1-21,23-39
+  s_1b94a262b63993::t_9ab05bd73084a3 22
+services/payment-service/build.gradle.kts
+  s_1b94a262b63993::t_0161a3ce5b7b5f 8
+services/booking-service/src/main/kotlin/com/messeb/ridesaga/booking/domain/RideRepository.kt
+  s_1b94a262b63993::t_49cc76238ec122 1-5
+common/src/main/kotlin/com/messeb/ridesaga/common/KafkaCorrelationConfig.kt
+  s_1b94a262b63993::t_2563cd79917d8a 17
+services/booking-service/src/main/kotlin/com/messeb/ridesaga/booking/application/RideService.kt
+  s_1b94a262b63993::t_e1dd8857926e6f 23
+  s_1b94a262b63993::t_298171c181c307 55
+  s_1b94a262b63993::t_ca4f2b83a66436 1-22,24-54,56-97
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.10",
+  "base_commit_sha": "734293850ef64e8cd61b53e4c0ce0499ee2e1849",
+  "prompts": {},
+  "sessions": {
+    "s_1b94a262b63993": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "58e416c0-4e8a-4407-add4-e382038720e1",
+        "model": "claude-fable-5"
+      },
+      "human_author": "Sebastian Messingfeld <sebastian@messeb.com>"
+    }
+  }
+}
