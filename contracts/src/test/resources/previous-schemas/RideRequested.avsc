@@ -1,0 +1,16 @@
+{
+  "type": "record",
+  "name": "RideRequested",
+  "namespace": "com.messeb.ridesaga.events",
+  "doc": "A rider requested a ride. Saga trigger, published by booking-service on booking.ride-requested.v1.",
+  "fields": [
+    { "name": "eventId", "type": "string", "doc": "Unique event id (UUID), used for idempotency" },
+    { "name": "occurredAt", "type": { "type": "long", "logicalType": "timestamp-millis" } },
+    { "name": "rideId", "type": "string", "doc": "Aggregate id (UUID); Kafka partition key" },
+    { "name": "riderId", "type": "string" },
+    { "name": "pickupLocation", "type": "string" },
+    { "name": "dropoffLocation", "type": "string" },
+    { "name": "fareAmount", "type": { "type": "bytes", "logicalType": "decimal", "precision": 10, "scale": 2 } },
+    { "name": "currency", "type": "string", "doc": "ISO 4217 code, e.g. EUR" }
+  ]
+}

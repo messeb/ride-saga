@@ -1,0 +1,12 @@
+{
+  "type": "record",
+  "name": "PaymentFailed",
+  "namespace": "com.messeb.ridesaga.events",
+  "doc": "Charging the ride fare failed; triggers saga compensation. Published by payment-service on payment.payment-failed.v1.",
+  "fields": [
+    { "name": "eventId", "type": "string" },
+    { "name": "occurredAt", "type": { "type": "long", "logicalType": "timestamp-millis" } },
+    { "name": "rideId", "type": "string" },
+    { "name": "reason", "type": "string" }
+  ]
+}

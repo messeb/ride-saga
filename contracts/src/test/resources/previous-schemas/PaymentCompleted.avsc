@@ -1,0 +1,14 @@
+{
+  "type": "record",
+  "name": "PaymentCompleted",
+  "namespace": "com.messeb.ridesaga.events",
+  "doc": "The ride fare was charged successfully. Published by payment-service on payment.payment-completed.v1.",
+  "fields": [
+    { "name": "eventId", "type": "string" },
+    { "name": "occurredAt", "type": { "type": "long", "logicalType": "timestamp-millis" } },
+    { "name": "rideId", "type": "string" },
+    { "name": "paymentId", "type": "string" },
+    { "name": "amount", "type": { "type": "bytes", "logicalType": "decimal", "precision": 10, "scale": 2 } },
+    { "name": "currency", "type": "string" }
+  ]
+}

@@ -1,0 +1,13 @@
+{
+  "type": "record",
+  "name": "DriverAssigned",
+  "namespace": "com.messeb.ridesaga.events",
+  "doc": "A driver was assigned to a ride. Published by driver-matching-service on dispatch.driver-assigned.v1.",
+  "fields": [
+    { "name": "eventId", "type": "string" },
+    { "name": "occurredAt", "type": { "type": "long", "logicalType": "timestamp-millis" } },
+    { "name": "rideId", "type": "string" },
+    { "name": "driverId", "type": "string" },
+    { "name": "etaMinutes", "type": "int", "doc": "Estimated minutes until pickup" }
+  ]
+}

@@ -1,0 +1,13 @@
+{
+  "type": "record",
+  "name": "RideConfirmed",
+  "namespace": "com.messeb.ridesaga.events",
+  "doc": "Happy-path saga terminator: driver assigned and payment completed. Published by booking-service on booking.ride-confirmed.v1.",
+  "fields": [
+    { "name": "eventId", "type": "string" },
+    { "name": "occurredAt", "type": { "type": "long", "logicalType": "timestamp-millis" } },
+    { "name": "rideId", "type": "string" },
+    { "name": "driverId", "type": "string" },
+    { "name": "confirmedAt", "type": { "type": "long", "logicalType": "timestamp-millis" } }
+  ]
+}

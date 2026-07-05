@@ -1,0 +1,22 @@
+{
+  "type": "record",
+  "name": "RideCancelled",
+  "namespace": "com.messeb.ridesaga.events",
+  "doc": "Failure-path saga terminator; consumers run compensations (e.g. release driver). Published by booking-service on booking.ride-cancelled.v1.",
+  "fields": [
+    { "name": "eventId", "type": "string" },
+    { "name": "occurredAt", "type": { "type": "long", "logicalType": "timestamp-millis" } },
+    { "name": "rideId", "type": "string" },
+    {
+      "name": "reason",
+      "type": {
+        "type": "enum",
+        "name": "CancellationReason",
+        "namespace": "com.messeb.ridesaga.events",
+        "symbols": ["PAYMENT_FAILED", "NO_DRIVER_AVAILABLE", "RIDER_CANCELLED", "UNKNOWN"],
+        "default": "UNKNOWN"
+      },
+      "doc": "Why the ride was cancelled; UNKNOWN is the forward-compatibility fallback"
+    }
+  ]
+}
