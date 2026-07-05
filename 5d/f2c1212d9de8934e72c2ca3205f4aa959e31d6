@@ -1,0 +1,25 @@
+services/driver-matching-service/src/test/kotlin/com/messeb/ridesaga/dispatch/DriverMatchingIntegrationTest.kt
+  s_1b94a262b63993::t_3cd5a04945e706 66,113
+services/booking-service/src/test/kotlin/com/messeb/ridesaga/booking/BookingServiceIntegrationTest.kt
+  s_1b94a262b63993::t_3cd5a04945e706 104,132,137
+services/payment-service/src/test/kotlin/com/messeb/ridesaga/payment/PaymentServiceIntegrationTest.kt
+  s_1b94a262b63993::t_3cd5a04945e706 63,85,141,146
+services/notification-service/src/test/kotlin/com/messeb/ridesaga/notification/NotificationServiceIntegrationTest.kt
+  s_1b94a262b63993::t_3cd5a04945e706 55
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.10",
+  "base_commit_sha": "5df2c1212d9de8934e72c2ca3205f4aa959e31d6",
+  "prompts": {},
+  "sessions": {
+    "s_1b94a262b63993": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "58e416c0-4e8a-4407-add4-e382038720e1",
+        "model": "claude-fable-5"
+      },
+      "human_author": "Sebastian Messingfeld <sebastian@messeb.com>"
+    }
+  }
+}
