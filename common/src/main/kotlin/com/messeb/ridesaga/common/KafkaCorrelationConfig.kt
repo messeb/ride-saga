@@ -1,6 +1,5 @@
 package com.messeb.ridesaga.common
 
-import org.apache.avro.specific.SpecificRecord
 import org.springframework.context.annotation.Bean
 import org.springframework.context.annotation.Configuration
 import org.springframework.kafka.config.ContainerCustomizer
@@ -15,7 +14,7 @@ import org.springframework.kafka.listener.ConcurrentMessageListenerContainer
 class KafkaCorrelationConfig {
 
     @Bean
-    fun eventPublisher(kafkaTemplate: KafkaTemplate<String, SpecificRecord>): EventPublisher = EventPublisher(kafkaTemplate)
+    fun eventPublisher(kafkaTemplate: KafkaTemplate<Any, Any>): EventPublisher = EventPublisher(kafkaTemplate)
 
     @Bean
     fun correlationContainerCustomizer(): ContainerCustomizer<Any, Any, ConcurrentMessageListenerContainer<Any, Any>> =

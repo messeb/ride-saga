@@ -4,7 +4,6 @@ import com.messeb.ridesaga.events.PaymentFailed
 import io.mockk.every
 import io.mockk.mockk
 import io.mockk.slot
-import org.apache.avro.specific.SpecificRecord
 import org.apache.kafka.clients.producer.ProducerRecord
 import org.junit.jupiter.api.AfterEach
 import org.junit.jupiter.api.Assertions.assertEquals
@@ -18,9 +17,9 @@ import java.util.concurrent.CompletableFuture
 
 class EventPublisherTest {
 
-    private val kafkaTemplate = mockk<KafkaTemplate<String, SpecificRecord>>()
+    private val kafkaTemplate = mockk<KafkaTemplate<Any, Any>>()
     private val publisher = EventPublisher(kafkaTemplate)
-    private val sent = slot<ProducerRecord<String, SpecificRecord>>()
+    private val sent = slot<ProducerRecord<Any, Any>>()
 
     private val event = PaymentFailed.newBuilder()
         .setEventId("event-1")

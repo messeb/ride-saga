@@ -15,15 +15,15 @@ import java.util.concurrent.CompletableFuture
  * propagates the correlation id (from MDC, i.e. from the message or HTTP request being
  * handled) plus the causation id of the triggering event.
  */
-class EventPublisher(private val kafkaTemplate: KafkaTemplate<String, SpecificRecord>) {
+class EventPublisher(private val kafkaTemplate: KafkaTemplate<Any, Any>) {
 
     fun publish(
         topic: String,
         rideId: String,
         event: SpecificRecord,
         causationId: String? = null,
-    ): CompletableFuture<SendResult<String, SpecificRecord>> {
-        val record = ProducerRecord<String, SpecificRecord>(topic, rideId, event)
+    ): CompletableFuture<SendResult<Any, Any>> {
+        val record = ProducerRecord<Any, Any>(topic, rideId, event)
         val correlationId = MDC.get(EventHeaders.MDC_CORRELATION_ID) ?: UUID.randomUUID().toString()
         record.headers().add(RecordHeader(EventHeaders.CORRELATION_ID, correlationId.toByteArray()))
         causationId?.let { record.headers().add(RecordHeader(EventHeaders.CAUSATION_ID, it.toByteArray())) }
