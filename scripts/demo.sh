@@ -22,7 +22,8 @@ RESPONSE=$(curl -fsS -X POST "$BASE_URL/api/rides" \
 RIDE_ID=$(echo "$RESPONSE" | jq -r .rideId)
 echo "→ ride $RIDE_ID requested, waiting for the saga..."
 
-for _ in $(seq 1 30); do
+# generous window: on cold CI runners the consumer groups may still be joining
+for _ in $(seq 1 90); do
   STATUS=$(curl -fsS "$BASE_URL/api/rides/$RIDE_ID" | jq -r .status)
   case "$STATUS" in
     CONFIRMED)
@@ -44,5 +45,5 @@ for _ in $(seq 1 30); do
   sleep 1
 done
 
-echo "⚠️  saga did not finish within 30s — check: docker compose logs"
+echo "⚠️  saga did not finish within 90s — check: docker compose logs"
 exit 1
