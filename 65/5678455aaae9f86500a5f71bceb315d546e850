@@ -1,0 +1,42 @@
+services/driver-matching-service/src/main/kotlin/com/messeb/ridesaga/dispatch/messaging/PoisonMessageException.kt
+  s_1b94a262b63993::t_13c9fd04507993 1-7
+services/driver-matching-service/src/main/kotlin/com/messeb/ridesaga/dispatch/domain/DispatchProperties.kt
+  s_1b94a262b63993::t_eafef93715adfe 6
+  s_1b94a262b63993::t_b63362b9b73861 1-5
+services/driver-matching-service/src/main/kotlin/com/messeb/ridesaga/dispatch/DriverMatchingServiceApplication.kt
+  s_1b94a262b63993::t_37d0276c381fe0 4,8
+services/driver-matching-service/src/test/kotlin/com/messeb/ridesaga/dispatch/domain/DriverPoolTest.kt
+  s_1b94a262b63993::t_4938ed79626b1a 1-57
+services/driver-matching-service/src/main/kotlin/com/messeb/ridesaga/dispatch/messaging/RideRequestedListener.kt
+  s_1b94a262b63993::t_2e0455fe5e0be8 13
+  s_1b94a262b63993::t_4dc28721372c56 45
+  s_1b94a262b63993::t_e4db549210eda5 1-12,14-44,46-104
+services/driver-matching-service/src/main/resources/application.yml
+  s_1b94a262b63993::t_6514b809704959 1-54
+services/driver-matching-service/src/main/kotlin/com/messeb/ridesaga/dispatch/domain/DriverPool.kt
+  s_1b94a262b63993::t_eafef93715adfe 15
+  s_1b94a262b63993::t_0ab28b845dc8c9 1-14,16-46
+services/driver-matching-service/src/main/kotlin/com/messeb/ridesaga/dispatch/messaging/RideCancelledListener.kt
+  s_1b94a262b63993::t_570bbff28250b2 1-20
+services/driver-matching-service/src/main/kotlin/com/messeb/ridesaga/dispatch/config/KafkaConfig.kt
+  s_1b94a262b63993::t_b540c4079d1e8d 1-22
+services/driver-matching-service/src/test/kotlin/com/messeb/ridesaga/dispatch/DriverMatchingIntegrationTest.kt
+  s_1b94a262b63993::t_2ffe00ab523698 1-72,83-145
+  s_1b94a262b63993::t_eafef93715adfe 73-82
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.10",
+  "base_commit_sha": "655678455aaae9f86500a5f71bceb315d546e850",
+  "prompts": {},
+  "sessions": {
+    "s_1b94a262b63993": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "58e416c0-4e8a-4407-add4-e382038720e1",
+        "model": "claude-fable-5"
+      },
+      "human_author": "Sebastian Messingfeld <sebastian@messeb.com>"
+    }
+  }
+}
