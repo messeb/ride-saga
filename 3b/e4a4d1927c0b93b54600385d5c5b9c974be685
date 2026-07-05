@@ -1,0 +1,25 @@
+services/notification-service/src/main/resources/application.yml
+  s_1b94a262b63993::t_c7ef8067486d95 1-50
+services/notification-service/src/test/kotlin/com/messeb/ridesaga/notification/NotificationServiceIntegrationTest.kt
+  s_1b94a262b63993::t_d9419ada9a5b5c 1-81
+services/notification-service/src/main/kotlin/com/messeb/ridesaga/notification/config/KafkaConfig.kt
+  s_1b94a262b63993::t_026e690e5e60e2 1-10
+services/notification-service/src/main/kotlin/com/messeb/ridesaga/notification/messaging/RideOutcomeListener.kt
+  s_1b94a262b63993::t_21f3ddce938e8d 1-44
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.10",
+  "base_commit_sha": "3be4a4d1927c0b93b54600385d5c5b9c974be685",
+  "prompts": {},
+  "sessions": {
+    "s_1b94a262b63993": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "58e416c0-4e8a-4407-add4-e382038720e1",
+        "model": "claude-fable-5"
+      },
+      "human_author": "Sebastian Messingfeld <sebastian@messeb.com>"
+    }
+  }
+}
