@@ -11,6 +11,12 @@
     { "name": "pickupLocation", "type": "string" },
     { "name": "dropoffLocation", "type": "string" },
     { "name": "fareAmount", "type": { "type": "bytes", "logicalType": "decimal", "precision": 10, "scale": 2 } },
-    { "name": "currency", "type": "string", "doc": "ISO 4217 code, e.g. EUR" }
+    { "name": "currency", "type": "string", "doc": "ISO 4217 code, e.g. EUR" },
+    {
+      "name": "paymentMethod",
+      "type": ["null", "string"],
+      "default": null,
+      "doc": "Optional with default — the BACKWARD-compatible evolution demo: consumers on the previous schema keep working"
+    }
   ]
 }
