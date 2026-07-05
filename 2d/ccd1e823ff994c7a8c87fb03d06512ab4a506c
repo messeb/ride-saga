@@ -1,0 +1,25 @@
+docker-compose.yml
+  s_1b94a262b63993::t_896e5a47683834 51
+  s_1b94a262b63993::t_33924c4815e6ab 7-9
+  s_1b94a262b63993::t_d4d0ee3fba1383 179
+  s_1b94a262b63993::t_305cca3a710f1d 30
+scripts/e2e.sh
+  s_1b94a262b63993::t_2e2643e63b7b47 35
+  s_1b94a262b63993::t_12706eb8024e13 7-13
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.10",
+  "base_commit_sha": "2dccd1e823ff994c7a8c87fb03d06512ab4a506c",
+  "prompts": {},
+  "sessions": {
+    "s_1b94a262b63993": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "58e416c0-4e8a-4407-add4-e382038720e1",
+        "model": "claude-fable-5"
+      },
+      "human_author": "Sebastian Messingfeld <sebastian@messeb.com>"
+    }
+  }
+}
