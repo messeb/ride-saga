@@ -1,0 +1,25 @@
+.github/dependabot.yml
+  s_1b94a262b63993::t_317ccc8544fe02 1-27
+.github/workflows/ci.yml
+  s_1b94a262b63993::t_106bad9840f3e6 31,33-91
+.github/workflows/release.yml
+  s_1b94a262b63993::t_9692d5a8a86b33 1-114
+cliff.toml
+  s_1b94a262b63993::t_74699b61fb89f9 1-34
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.10",
+  "base_commit_sha": "c55a56ff55b996ff79abfd5286a8a9416b3b6d4b",
+  "prompts": {},
+  "sessions": {
+    "s_1b94a262b63993": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "58e416c0-4e8a-4407-add4-e382038720e1",
+        "model": "claude-fable-5"
+      },
+      "human_author": "Sebastian Messingfeld <sebastian@messeb.com>"
+    }
+  }
+}
