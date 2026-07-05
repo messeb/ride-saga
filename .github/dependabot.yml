@@ -1,12 +1,25 @@
 version: 2
+
+# Two grouped pull requests instead of one PR per dependency:
+#   minor-and-patch    — safe library + base-image bumps (gradle, docker)
+#   major-and-pipeline — CI pipeline updates (github-actions, typically majors)
+# Note: gradle majors (rare) cannot join a second multi-ecosystem group and
+# arrive as individual PRs.
+multi-ecosystem-groups:
+  minor-and-patch:
+    schedule:
+      interval: weekly
+  major-and-pipeline:
+    schedule:
+      interval: weekly
+
 updates:
   - package-ecosystem: gradle
     directory: /
-    schedule:
-      interval: weekly
-    groups:
-      minor-and-patch:
-        update-types: ["minor", "patch"]
+    open-pull-requests-limit: 2
+    multi-ecosystem-group: minor-and-patch
+    patterns: ["*"]
+    update-types: ["minor", "patch"]
     ignore:
       # the Avro codegen plugin does not support Gradle 9 — keep the wrapper on 8.x
       - dependency-name: gradle
@@ -14,20 +27,23 @@ updates:
       - dependency-name: gradle-wrapper
         update-types: ["version-update:semver-major"]
 
-  - package-ecosystem: github-actions
-    directory: /
-    schedule:
-      interval: weekly
-
   - package-ecosystem: docker
     directories:
       - /services/booking-service
       - /services/driver-matching-service
       - /services/payment-service
       - /services/notification-service
-    schedule:
-      interval: weekly
+    open-pull-requests-limit: 1
+    multi-ecosystem-group: minor-and-patch
+    patterns: ["*"]
+    update-types: ["minor", "patch"]
     ignore:
       # the project targets Java 21 (Gradle toolchain) — no automatic JRE major bumps
       - dependency-name: eclipse-temurin
         update-types: ["version-update:semver-major"]
+
+  - package-ecosystem: github-actions
+    directory: /
+    open-pull-requests-limit: 1
+    multi-ecosystem-group: major-and-pipeline
+    patterns: ["*"]
