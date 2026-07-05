@@ -1,0 +1,18 @@
+build:
+  maxIssues: 0
+
+style:
+  MagicNumber:
+    active: false
+  ReturnCount:
+    max: 3
+
+performance:
+  SpreadOperator:
+    # idiomatic Spring Boot Kotlin: runApplication<App>(*args)
+    active: false
+
+complexity:
+  LongParameterList:
+    functionThreshold: 8
+    constructorThreshold: 8

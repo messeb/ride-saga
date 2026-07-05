@@ -1,0 +1,28 @@
+[versions]
+kotlin = "2.4.0"
+spring-boot = "4.1.0"
+detekt = "1.23.8"
+ktlint-plugin = "14.2.0"
+avro = "1.12.1"
+avro-plugin = "1.9.1"
+confluent = "8.3.0"
+testcontainers = "1.21.3"
+mockk = "1.14.3"
+
+[libraries]
+avro = { module = "org.apache.avro:avro", version.ref = "avro" }
+kafka-avro-serializer = { module = "io.confluent:kafka-avro-serializer", version.ref = "confluent" }
+mockk = { module = "io.mockk:mockk", version.ref = "mockk" }
+testcontainers-junit = { module = "org.testcontainers:junit-jupiter", version.ref = "testcontainers" }
+testcontainers-kafka = { module = "org.testcontainers:kafka", version.ref = "testcontainers" }
+testcontainers-postgresql = { module = "org.testcontainers:postgresql", version.ref = "testcontainers" }
+
+# used by build-logic to put plugins on the convention-plugin classpath
+kotlin-gradle-plugin = { module = "org.jetbrains.kotlin:kotlin-gradle-plugin", version.ref = "kotlin" }
+kotlin-spring-gradle-plugin = { module = "org.jetbrains.kotlin.plugin.spring:org.jetbrains.kotlin.plugin.spring.gradle.plugin", version.ref = "kotlin" }
+spring-boot-gradle-plugin = { module = "org.springframework.boot:spring-boot-gradle-plugin", version.ref = "spring-boot" }
+detekt-gradle-plugin = { module = "io.gitlab.arturbosch.detekt:detekt-gradle-plugin", version.ref = "detekt" }
+ktlint-gradle-plugin = { module = "org.jlleitschuh.gradle:ktlint-gradle", version.ref = "ktlint-plugin" }
+
+[plugins]
+avro = { id = "com.github.davidmc24.gradle.plugin.avro", version.ref = "avro-plugin" }
