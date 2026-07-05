@@ -1,0 +1,37 @@
+common/src/main/kotlin/com/messeb/ridesaga/common/CorrelationRecordInterceptor.kt
+  s_1b94a262b63993::t_50ee1d630221c5 1-27
+common/src/main/kotlin/com/messeb/ridesaga/common/KafkaCorrelationConfig.kt
+  s_1b94a262b63993::t_19eb6e7512a36d 1-17,19-25
+  s_1b94a262b63993::t_992c19dbc68195 18
+config/detekt/detekt.yml
+  s_1b94a262b63993::t_7b068b345b3237 7-9
+common/src/main/kotlin/com/messeb/ridesaga/common/EventHeaders.kt
+  s_1b94a262b63993::t_c8186447e7dd95 1-19
+common/src/test/kotlin/com/messeb/ridesaga/common/EventPublisherTest.kt
+  s_1b94a262b63993::t_e9e37f2dc53e0b 1-75
+common/src/main/kotlin/com/messeb/ridesaga/common/Topics.kt
+  s_1b94a262b63993::t_822e57b1f066da 1-21
+common/build.gradle.kts
+  s_1b94a262b63993::t_e0ffe5ca4e299b 17-18
+common/src/test/kotlin/com/messeb/ridesaga/common/CorrelationRecordInterceptorTest.kt
+  s_1b94a262b63993::t_654c1d027a8e0a 1-43
+common/src/main/kotlin/com/messeb/ridesaga/common/EventPublisher.kt
+  s_1b94a262b63993::t_583f00b45b11c0 1-17,19-37
+  s_1b94a262b63993::t_992c19dbc68195 18
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.10",
+  "base_commit_sha": "5c8fb2166f4bf9f770ce91aec041a92d2f08de2c",
+  "prompts": {},
+  "sessions": {
+    "s_1b94a262b63993": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "58e416c0-4e8a-4407-add4-e382038720e1",
+        "model": "claude-fable-5"
+      },
+      "human_author": "Sebastian Messingfeld <sebastian@messeb.com>"
+    }
+  }
+}
