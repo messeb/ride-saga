@@ -1,0 +1,79 @@
+docker/grafana/provisioning/dashboards/dashboards.yml
+  s_1b94a262b63993::t_332752bfc06dd2 1-8
+docker/otel-collector.yml
+  s_1b94a262b63993::t_865985b61553b6 1-23
+build-logic/src/main/kotlin/buildlogic.spring-boot-service.gradle.kts
+  s_1b94a262b63993::t_d25922cacfdbb7 8-9
+  s_1b94a262b63993::t_dcf60aa04ff560 14
+  s_1b94a262b63993::t_33e84f4c6774da 15
+services/notification-service/Dockerfile
+  s_1b94a262b63993::t_08b5a8359ab056 1-18
+scripts/demo-duplicate.sh
+  s_1b94a262b63993::t_ac6f027ddd8721 1-10,12-44
+  s_1b94a262b63993::t_148940bbc3c31c 11
+docker/grafana/dashboards/ride-saga-overview.json
+  s_1b94a262b63993::t_cda97198c9af31 1-93
+.dockerignore
+  s_1b94a262b63993::t_8fe25899a927c7 1-2
+services/booking-service/src/main/resources/application.yml
+  s_1b94a262b63993::t_2fbbaeaa683d7b 55,57-59
+services/booking-service/Dockerfile
+  s_1b94a262b63993::t_84bb798c5cd6ed 1-18
+docker/postgres-init.sql
+  s_1b94a262b63993::t_d849cabeaeb7b1 1-2
+scripts/demo-poison.sh
+  s_1b94a262b63993::t_a7877f62d3a7de 1-23,26-38
+  s_1b94a262b63993::t_f2c269fb5f8829 24-25
+docker/grafana/provisioning/datasources/datasources.yml
+  s_1b94a262b63993::t_a95a9265a5c041 1-15
+services/notification-service/src/test/kotlin/com/messeb/ridesaga/notification/NotificationServiceIntegrationTest.kt
+  s_1b94a262b63993::t_04cdcea2c455d4 56
+docker/prometheus.yml
+  s_1b94a262b63993::t_08fe0390466c0e 1-12
+services/driver-matching-service/Dockerfile
+  s_1b94a262b63993::t_8772365576023e 1-18
+services/payment-service/src/main/kotlin/com/messeb/ridesaga/payment/application/PaymentService.kt
+  s_1b94a262b63993::t_e9de2c22fffbad 33-34
+docker/tempo.yml
+  s_1b94a262b63993::t_13921fc3979532 1-21
+scripts/e2e.sh
+  s_1b94a262b63993::t_6fa93159193d2d 1-28
+scripts/demo.sh
+  s_1b94a262b63993::t_cb19084a3dd040 1-48
+services/driver-matching-service/src/main/kotlin/com/messeb/ridesaga/dispatch/domain/DriverPool.kt
+  s_1b94a262b63993::t_c148ac4cee23f8 21
+services/driver-matching-service/src/main/kotlin/com/messeb/ridesaga/dispatch/messaging/RideRequestedListener.kt
+  s_1b94a262b63993::t_9905e78a69f60e 41-42
+services/driver-matching-service/src/main/resources/application.yml
+  s_1b94a262b63993::t_2fbbaeaa683d7b 48,50-52
+docker-compose.yml
+  s_1b94a262b63993::t_05d35fb9413f0a 26
+  s_1b94a262b63993::t_9e31cfc919c46d 128
+  s_1b94a262b63993::t_7c3e832ad3be5b 1-25,27-127,129-176
+services/notification-service/src/main/resources/application.yml
+  s_1b94a262b63993::t_2fbbaeaa683d7b 44,46-48
+services/payment-service/src/main/resources/application.yml
+  s_1b94a262b63993::t_2fbbaeaa683d7b 53,55-57
+Makefile
+  s_1b94a262b63993::t_ae4277aa395034 1-34
+services/payment-service/Dockerfile
+  s_1b94a262b63993::t_65832efb90d7f5 1-18
+services/notification-service/src/main/kotlin/com/messeb/ridesaga/notification/messaging/RideOutcomeListener.kt
+  s_1b94a262b63993::t_bf30aa4440bbe6 19-20
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.10",
+  "base_commit_sha": "3049217707e1c12289ebe089981e7348bcc5b73a",
+  "prompts": {},
+  "sessions": {
+    "s_1b94a262b63993": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "58e416c0-4e8a-4407-add4-e382038720e1",
+        "model": "claude-fable-5"
+      },
+      "human_author": "Sebastian Messingfeld <sebastian@messeb.com>"
+    }
+  }
+}
