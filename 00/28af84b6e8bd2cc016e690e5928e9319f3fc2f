@@ -1,0 +1,39 @@
+services/payment-service/src/main/kotlin/com/messeb/ridesaga/payment/domain/Payment.kt
+  s_1b94a262b63993::t_26081b07450080 1-46
+services/payment-service/src/main/kotlin/com/messeb/ridesaga/payment/domain/ProcessedEvent.kt
+  s_1b94a262b63993::t_06fcdff8e7ae1b 1-21
+services/payment-service/src/main/resources/db/migration/V1__create_payments.sql
+  s_1b94a262b63993::t_3876341023a700 1-14
+services/payment-service/src/main/kotlin/com/messeb/ridesaga/payment/application/PaymentService.kt
+  s_1b94a262b63993::t_77d2c33ce03db6 1-102
+services/payment-service/src/main/kotlin/com/messeb/ridesaga/payment/config/KafkaConfig.kt
+  s_1b94a262b63993::t_d660c313767352 1-22
+services/payment-service/src/main/resources/application.yml
+  s_1b94a262b63993::t_858628e1a84b8e 1-59
+services/payment-service/src/test/kotlin/com/messeb/ridesaga/payment/PaymentServiceIntegrationTest.kt
+  s_1b94a262b63993::t_28ac6309fa5cac 1-90,101,109-177
+  s_1b94a262b63993::t_2a3527a8aa2471 91-100,102-108
+services/payment-service/build.gradle.kts
+  s_1b94a262b63993::t_83c4959a750979 14
+  s_1b94a262b63993::t_c41b4d182c9e29 3
+services/payment-service/src/main/kotlin/com/messeb/ridesaga/payment/domain/Repositories.kt
+  s_1b94a262b63993::t_93534adf17fcf3 1-9
+services/payment-service/src/main/kotlin/com/messeb/ridesaga/payment/messaging/PaymentSagaListener.kt
+  s_1b94a262b63993::t_becd901176a2ec 1-26
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.10",
+  "base_commit_sha": "0028af84b6e8bd2cc016e690e5928e9319f3fc2f",
+  "prompts": {},
+  "sessions": {
+    "s_1b94a262b63993": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "58e416c0-4e8a-4407-add4-e382038720e1",
+        "model": "claude-fable-5"
+      },
+      "human_author": "Sebastian Messingfeld <sebastian@messeb.com>"
+    }
+  }
+}
