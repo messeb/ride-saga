@@ -1,0 +1,31 @@
+services/notification-service/src/test/kotlin/com/messeb/ridesaga/notification/NotificationServiceIntegrationTest.kt
+  s_1b94a262b63993::t_a73b5817d0ef24 16,36-47,95
+  s_1b94a262b63993::t_eeee08660646ce 20-21
+  s_1b94a262b63993::t_cc5c82b499c01c 35
+services/booking-service/src/test/kotlin/com/messeb/ridesaga/booking/BookingServiceIntegrationTest.kt
+  s_1b94a262b63993::t_eeee08660646ce 23,28-29
+  s_1b94a262b63993::t_a73b5817d0ef24 21,50-62,195
+services/driver-matching-service/src/test/kotlin/com/messeb/ridesaga/dispatch/DriverMatchingIntegrationTest.kt
+  s_1b94a262b63993::t_a73b5817d0ef24 20,22,24-25,45-57,161
+  s_1b94a262b63993::t_eeee08660646ce 17
+services/payment-service/src/test/kotlin/com/messeb/ridesaga/payment/PaymentServiceIntegrationTest.kt
+  s_1b94a262b63993::t_a73b5817d0ef24 24,51-62,191
+  s_1b94a262b63993::t_eeee08660646ce 28-29
+  s_1b94a262b63993::t_d5ba0c6bbf4e9a 50
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.10",
+  "base_commit_sha": "ae78b6f8d00bdd8f98172703cd50a0fa2b4110ea",
+  "prompts": {},
+  "sessions": {
+    "s_1b94a262b63993": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "58e416c0-4e8a-4407-add4-e382038720e1",
+        "model": "claude-fable-5"
+      },
+      "human_author": "Sebastian Messingfeld <sebastian@messeb.com>"
+    }
+  }
+}
