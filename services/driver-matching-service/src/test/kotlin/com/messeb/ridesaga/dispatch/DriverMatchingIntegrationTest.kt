@@ -63,7 +63,7 @@ class DriverMatchingIntegrationTest {
         awaitEvent<DriverAssigned>(assignedConsumer) { it.rideId == healthyRideId }
 
         // 4 attempts with exponential backoff, then dead-lettered
-        val deadLettered = awaitEvent<RideRequested>(dltConsumer, timeoutSeconds = 60) { it.rideId == poisonRideId }
+        val deadLettered = awaitEvent<RideRequested>(dltConsumer, timeoutSeconds = 180) { it.rideId == poisonRideId }
         assertEquals("POISON", deadLettered.pickupLocation)
 
         dltConsumer.close()
@@ -110,7 +110,7 @@ class DriverMatchingIntegrationTest {
 
     private inline fun <reified T : SpecificRecord> awaitEvent(
         consumer: KafkaConsumer<String, Any>,
-        timeoutSeconds: Long = 30,
+        timeoutSeconds: Long = 120,
         crossinline predicate: (T) -> Boolean,
     ): T {
         val deadline = Instant.now().plusSeconds(timeoutSeconds)

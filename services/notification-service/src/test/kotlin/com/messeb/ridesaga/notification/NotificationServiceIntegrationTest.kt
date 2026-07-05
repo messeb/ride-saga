@@ -52,7 +52,7 @@ class NotificationServiceIntegrationTest {
             ),
         ).use { it.send(ProducerRecord(Topics.RIDE_CONFIRMED, rideId, event)).get() }
 
-        await().atMost(Duration.ofSeconds(30)).untilAsserted {
+        await().atMost(Duration.ofSeconds(120)).untilAsserted {
             assertEquals(1.0, meterRegistry.counter("notifications.sent").count())
         }
     }

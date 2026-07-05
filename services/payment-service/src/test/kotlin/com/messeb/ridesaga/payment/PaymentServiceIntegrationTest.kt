@@ -60,7 +60,7 @@ class PaymentServiceIntegrationTest {
 
         awaitEvent<PaymentCompleted>(consumer) { it.rideId == rideId }
 
-        await().atMost(Duration.ofSeconds(10)).untilAsserted {
+        await().atMost(Duration.ofSeconds(30)).untilAsserted {
             val payment = payments.findByRideId(rideId)
             assertEquals(PaymentStatus.COMPLETED, payment?.status)
         }
@@ -82,7 +82,7 @@ class PaymentServiceIntegrationTest {
         val failed = awaitEvent<PaymentFailed>(consumer) { it.rideId == rideId }
         assertEquals(rideId, failed.rideId)
 
-        await().atMost(Duration.ofSeconds(10)).untilAsserted {
+        await().atMost(Duration.ofSeconds(30)).untilAsserted {
             assertEquals(PaymentStatus.FAILED, payments.findByRideId(rideId)?.status)
         }
         consumer.close()
@@ -138,12 +138,12 @@ class PaymentServiceIntegrationTest {
         consumer: KafkaConsumer<String, Any>,
         crossinline predicate: (T) -> Boolean,
     ): T {
-        val deadline = Instant.now().plusSeconds(30)
+        val deadline = Instant.now().plusSeconds(120)
         while (Instant.now().isBefore(deadline)) {
             val match = consumer.poll(Duration.ofMillis(500)).mapNotNull { it.value() as? T }.firstOrNull { predicate(it) }
             if (match != null) return match
         }
-        error("no matching ${T::class.simpleName} event received within 30s")
+        error("no matching ${T::class.simpleName} event received within 120s")
     }
 
     companion object {

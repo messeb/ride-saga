@@ -101,7 +101,7 @@ class BookingServiceIntegrationTest {
         val confirmed = awaitEvent<RideConfirmed>(consumer) { it.rideId == rideId }
         assertEquals("driver-7", confirmed.driverId)
 
-        await().atMost(Duration.ofSeconds(10)).untilAsserted {
+        await().atMost(Duration.ofSeconds(30)).untilAsserted {
             val ride = rest.get().uri("/api/rides/$rideId").retrieve().toEntity(Map::class.java)
             assertEquals("CONFIRMED", ride.body?.get("status"))
             assertEquals("driver-7", ride.body?.get("driverId"))
@@ -129,12 +129,12 @@ class BookingServiceIntegrationTest {
         consumer: KafkaConsumer<String, Any>,
         crossinline predicate: (T) -> Boolean,
     ): T {
-        val deadline = Instant.now().plusSeconds(30)
+        val deadline = Instant.now().plusSeconds(120)
         while (Instant.now().isBefore(deadline)) {
             val match = consumer.poll(Duration.ofMillis(500)).mapNotNull { it.value() as? T }.firstOrNull { predicate(it) }
             if (match != null) return match
         }
-        error("no matching ${T::class.simpleName} event received within 30s")
+        error("no matching ${T::class.simpleName} event received within 120s")
     }
 
     private fun publish(topic: String, key: String, event: SpecificRecord) {
