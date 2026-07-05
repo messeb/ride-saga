@@ -11,6 +11,8 @@ updates:
       # the Avro codegen plugin does not support Gradle 9 — keep the wrapper on 8.x
       - dependency-name: gradle
         update-types: ["version-update:semver-major"]
+      - dependency-name: gradle-wrapper
+        update-types: ["version-update:semver-major"]
 
   - package-ecosystem: github-actions
     directory: /
@@ -25,3 +27,7 @@ updates:
       - /services/notification-service
     schedule:
       interval: weekly
+    ignore:
+      # the project targets Java 21 (Gradle toolchain) — no automatic JRE major bumps
+      - dependency-name: eclipse-temurin
+        update-types: ["version-update:semver-major"]
