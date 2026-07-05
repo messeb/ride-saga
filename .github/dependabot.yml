@@ -1,0 +1,27 @@
+version: 2
+updates:
+  - package-ecosystem: gradle
+    directory: /
+    schedule:
+      interval: weekly
+    groups:
+      minor-and-patch:
+        update-types: ["minor", "patch"]
+    ignore:
+      # the Avro codegen plugin does not support Gradle 9 — keep the wrapper on 8.x
+      - dependency-name: gradle
+        update-types: ["version-update:semver-major"]
+
+  - package-ecosystem: github-actions
+    directory: /
+    schedule:
+      interval: weekly
+
+  - package-ecosystem: docker
+    directories:
+      - /services/booking-service
+      - /services/driver-matching-service
+      - /services/payment-service
+      - /services/notification-service
+    schedule:
+      interval: weekly
