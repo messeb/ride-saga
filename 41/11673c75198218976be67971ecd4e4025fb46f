@@ -1,0 +1,28 @@
+scripts/e2e.sh
+  s_1b94a262b63993::t_00caee65fe244d 22-26,28-33
+  s_1b94a262b63993::t_244b377da2f2c3 27
+services/driver-matching-service/src/main/resources/application.yml
+  s_1b94a262b63993::t_105d7d149ab399 22-24
+services/notification-service/src/main/resources/application.yml
+  s_1b94a262b63993::t_105d7d149ab399 22-24
+services/payment-service/src/main/resources/application.yml
+  s_1b94a262b63993::t_105d7d149ab399 31-33
+services/booking-service/src/main/resources/application.yml
+  s_1b94a262b63993::t_105d7d149ab399 32-34
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.10",
+  "base_commit_sha": "4111673c75198218976be67971ecd4e4025fb46f",
+  "prompts": {},
+  "sessions": {
+    "s_1b94a262b63993": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "58e416c0-4e8a-4407-add4-e382038720e1",
+        "model": "claude-fable-5"
+      },
+      "human_author": "Sebastian Messingfeld <sebastian@messeb.com>"
+    }
+  }
+}
