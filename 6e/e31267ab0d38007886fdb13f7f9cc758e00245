@@ -1,0 +1,33 @@
+docs/adr/006-micrometer-otel-bridge.md
+  s_1b94a262b63993::t_ddbb5cf360733b 1-39
+docs/adr/002-avro-and-schema-registry.md
+  s_1b94a262b63993::t_350a1728dff49f 1-35
+docs/adr/001-choreography-over-orchestration.md
+  s_1b94a262b63993::t_822bbc6e44a8c6 1-33
+docs/adr/005-no-transactional-outbox.md
+  s_1b94a262b63993::t_b2b9a3f15e7988 1-36
+README.md
+  s_1b94a262b63993::t_ca562a1ff24cd2 6,8-10,12-13,15,17-70,74-75,77-78,80-134,139-141,145-146
+docs/adr/004-retry-topics-and-dlq.md
+  s_1b94a262b63993::t_4d4cc607a0a375 1-35
+docs/events.md
+  s_1b94a262b63993::t_e01edbee28be9b 1-66
+docs/adr/003-at-least-once-and-idempotency.md
+  s_1b94a262b63993::t_07fe198f62fdf7 1-36
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.10",
+  "base_commit_sha": "6ee31267ab0d38007886fdb13f7f9cc758e00245",
+  "prompts": {},
+  "sessions": {
+    "s_1b94a262b63993": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "58e416c0-4e8a-4407-add4-e382038720e1",
+        "model": "claude-fable-5"
+      },
+      "human_author": "Sebastian Messingfeld <sebastian@messeb.com>"
+    }
+  }
+}
