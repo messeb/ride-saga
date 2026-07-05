@@ -7,6 +7,15 @@ plugins {
     id("org.jlleitschuh.gradle.ktlint")
 }
 
+// Each service's test suite boots Testcontainers Kafka + a Spring context. Running all
+// of them at once starves small machines (CI runners) and the saga tests time out —
+// cap concurrent test tasks build-wide instead of inflating test timeouts.
+abstract class TestSuiteLimiter : BuildService<BuildServiceParameters.None>
+
+val testSuiteLimiter = gradle.sharedServices.registerIfAbsent("testSuiteLimiter", TestSuiteLimiter::class) {
+    maxParallelUsages.set(2)
+}
+
 kotlin {
     jvmToolchain(21)
     compilerOptions {
@@ -23,6 +32,7 @@ dependencies {
 
 tasks.withType<Test>().configureEach {
     useJUnitPlatform()
+    usesService(testSuiteLimiter)
     testLogging {
         events("failed", "skipped")
     }
