@@ -1,0 +1,35 @@
+services/booking-service/src/test/kotlin/com/messeb/ridesaga/booking/domain/RideTest.kt
+  s_1b94a262b63993::t_aa95b28526339c 32-44
+  s_1b94a262b63993::t_9ceafbb3077903 61,76,83-91
+services/booking-service/src/test/kotlin/com/messeb/ridesaga/booking/application/RideServiceTest.kt
+  s_1b94a262b63993::t_45f5da0598df20 110,118-120
+  s_1b94a262b63993::t_b9e606fcfd7f81 57-72,75-78
+  s_1b94a262b63993::t_154d75ae45c81f 56
+services/booking-service/src/main/kotlin/com/messeb/ridesaga/booking/messaging/BookingSagaListener.kt
+  s_1b94a262b63993::t_63b49273435866 22
+services/booking-service/src/main/resources/db/migration/V1__create_rides.sql
+  s_1b94a262b63993::t_1d1fb8c1a0941c 10
+services/booking-service/src/main/kotlin/com/messeb/ridesaga/booking/application/RideService.kt
+  s_1b94a262b63993::t_13ef27c17841e0 55,58-59,65-69
+services/booking-service/src/main/kotlin/com/messeb/ridesaga/booking/domain/Ride.kt
+  s_1b94a262b63993::t_998ccfec23d018 22-27
+  s_1b94a262b63993::t_f9f495b46b3a13 59-62,67-82
+docs/events.md
+  s_1b94a262b63993::t_182a1e92acdc4c 28-33
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.10",
+  "base_commit_sha": "11dbf7280e261bd0d6d320d1d2355d52850713ad",
+  "prompts": {},
+  "sessions": {
+    "s_1b94a262b63993": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "58e416c0-4e8a-4407-add4-e382038720e1",
+        "model": "claude-fable-5"
+      },
+      "human_author": "Sebastian Messingfeld <sebastian@messeb.com>"
+    }
+  }
+}
