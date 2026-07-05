@@ -30,7 +30,8 @@ class PaymentService(
     meterRegistry: MeterRegistry,
 ) {
 
-    private val duplicateCounter = meterRegistry.counter("events_duplicate_total", "service", "payment-service")
+    // rendered as events_duplicate_total in Prometheus
+    private val duplicateCounter = meterRegistry.counter("events.duplicate", "service", "payment-service")
 
     @Transactional
     fun registerPendingPayment(event: RideRequested) {

@@ -38,7 +38,8 @@ class RideRequestedListener(
     meterRegistry: MeterRegistry,
 ) {
 
-    private val dlqCounter = meterRegistry.counter("dlq_messages_total", "topic", Topics.RIDE_REQUESTED)
+    // rendered as dlq_messages_total in Prometheus
+    private val dlqCounter = meterRegistry.counter("dlq.messages", "topic", Topics.RIDE_REQUESTED)
 
     @RetryableTopic(
         attempts = "4",

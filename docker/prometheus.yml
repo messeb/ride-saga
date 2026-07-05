@@ -1,0 +1,12 @@
+global:
+  scrape_interval: 5s
+
+scrape_configs:
+  - job_name: ride-saga-services
+    metrics_path: /actuator/prometheus
+    static_configs:
+      - targets:
+          - booking-service:8080
+          - driver-matching-service:8080
+          - payment-service:8080
+          - notification-service:8080

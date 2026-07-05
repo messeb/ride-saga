@@ -18,7 +18,7 @@ class DriverPool(properties: DispatchProperties, meterRegistry: MeterRegistry) {
     private val assignments = ConcurrentHashMap<String, String>()
 
     init {
-        meterRegistry.gauge("drivers_available", available) { it.size.toDouble() }
+        meterRegistry.gauge("drivers.available", available) { it.size.toDouble() }
     }
 
     /** @return the assigned driver id, or null when no driver is available */

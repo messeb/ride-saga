@@ -16,7 +16,8 @@ import org.springframework.stereotype.Component
 @Component
 class RideOutcomeListener(meterRegistry: MeterRegistry) {
 
-    private val sentCounter = meterRegistry.counter("notifications_sent_total")
+    // rendered as notifications_sent_total in Prometheus
+    private val sentCounter = meterRegistry.counter("notifications.sent")
 
     @KafkaListener(topics = [Topics.RIDE_CONFIRMED])
     fun onRideConfirmed(event: RideConfirmed) {
