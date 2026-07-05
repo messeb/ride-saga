@@ -25,9 +25,12 @@ Operational topics (created by spring-kafka's retry machinery):
 - **Naming:** `<context>.<event-kebab>.v<major>`. The major version is part of the name:
   an incompatible schema gets a *new topic* (`…v2`) so old consumers keep working during
   migration. Compatible evolution happens in place (see below).
-- **Partitioning:** 6 partitions per topic, key = `rideId`. All events of one ride are
-  totally ordered relative to each other; consumer group = service name, listener
-  concurrency 3.
+- **Partitioning:** 6 partitions per topic, key = `rideId`. Events of one ride are
+  ordered *within each topic*; consumer group = service name, listener concurrency 3.
+- **Ordering across topics is NOT guaranteed:** booking-service can receive
+  `PaymentCompleted` before `DriverAssigned` even though payment causally happened
+  later. Consumers must absorb this — the ride aggregate records payment as a fact and
+  confirms once both facts are present, whichever arrives last (see `Ride.confirm()`).
 - **Envelope fields:** every event carries `eventId` (UUID, the idempotency handle) and
   `occurredAt` (timestamp-millis).
 - **Facts, not commands:** topics carry things that *happened* (`DriverAssigned`), never

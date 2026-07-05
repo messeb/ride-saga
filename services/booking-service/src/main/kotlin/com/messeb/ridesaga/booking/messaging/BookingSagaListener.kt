@@ -19,7 +19,7 @@ class BookingSagaListener(private val rides: RideService) {
 
     @KafkaListener(topics = [Topics.DRIVER_ASSIGNED])
     fun onDriverAssigned(event: DriverAssigned) {
-        rides.driverAssigned(event.rideId, event.driverId)
+        rides.driverAssigned(event.rideId, event.driverId, causationId = event.eventId)
     }
 
     @KafkaListener(topics = [Topics.PAYMENT_COMPLETED])

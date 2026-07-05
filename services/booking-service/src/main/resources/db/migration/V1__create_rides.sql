@@ -7,6 +7,7 @@ CREATE TABLE rides (
     currency            VARCHAR(3)     NOT NULL,
     requested_at        TIMESTAMPTZ    NOT NULL,
     status              VARCHAR(20)    NOT NULL,
+    payment_received    BOOLEAN        NOT NULL DEFAULT FALSE,
     driver_id           VARCHAR(36),
     cancellation_reason VARCHAR(100)
 );

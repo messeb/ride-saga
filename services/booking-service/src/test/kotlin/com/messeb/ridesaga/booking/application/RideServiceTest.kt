@@ -54,8 +54,28 @@ class RideServiceTest {
     }
 
     @Test
+    fun `confirms the ride even when PaymentCompleted arrives before DriverAssigned`() {
+        val ride = ride()
+        every { repository.findById(ride.id) } returns Optional.of(ride)
+        val published = slot<SpecificRecord>()
+        every { publisher.publish(eq(Topics.RIDE_CONFIRMED), any(), capture(published), eq("driver-event-1")) } returns mockk()
+
+        // cross-topic ordering: payment first, driver second
+        service.paymentCompleted(ride.id, causationId = "payment-event-1")
+        assertEquals(RideStatus.REQUESTED, ride.status)
+
+        service.driverAssigned(ride.id, "driver-7", causationId = "driver-event-1")
+
+        assertEquals(RideStatus.CONFIRMED, ride.status)
+        assertEquals("driver-7", (published.captured as RideConfirmed).driverId)
+    }
+
+    @Test
     fun `a duplicate payment completion does not publish a second RideConfirmed`() {
-        val ride = rideWithDriver().apply { confirm() }
+        val ride = rideWithDriver().apply {
+            recordPayment()
+            confirm()
+        }
         every { repository.findById(ride.id) } returns Optional.of(ride)
 
         service.paymentCompleted(ride.id, causationId = "payment-event-1")
@@ -87,7 +107,7 @@ class RideServiceTest {
         verify(exactly = 0) { publisher.publish(any(), any(), any(), any()) }
     }
 
-    private fun rideWithDriver() = Ride(
+    private fun ride() = Ride(
         id = "ride-1",
         riderId = "rider-1",
         pickupLocation = "A",
@@ -95,5 +115,7 @@ class RideServiceTest {
         fareAmount = BigDecimal("10.00"),
         currency = "EUR",
         requestedAt = Instant.now(),
-    ).apply { assignDriver("driver-7") }
+    )
+
+    private fun rideWithDriver() = ride().apply { assignDriver("driver-7") }
 }

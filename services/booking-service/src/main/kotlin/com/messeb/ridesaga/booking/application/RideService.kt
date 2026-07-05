@@ -52,14 +52,21 @@ class RideService(private val rides: RideRepository, private val events: EventPu
     fun findRide(rideId: String): Ride? = rides.findById(rideId).orElse(null)
 
     @Transactional
-    fun driverAssigned(rideId: String, driverId: String) {
+    fun driverAssigned(rideId: String, driverId: String, causationId: String) {
         val ride = rides.findById(rideId).orElse(null) ?: return
         ride.assignDriver(driverId)
+        // PaymentCompleted may have arrived first (cross-topic ordering is not guaranteed)
+        confirmIfComplete(ride, causationId)
     }
 
     @Transactional
     fun paymentCompleted(rideId: String, causationId: String) {
         val ride = rides.findById(rideId).orElse(null) ?: return
+        if (!ride.recordPayment()) return
+        confirmIfComplete(ride, causationId)
+    }
+
+    private fun confirmIfComplete(ride: Ride, causationId: String) {
         if (!ride.confirm()) return
 
         val event = RideConfirmed.newBuilder()

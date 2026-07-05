@@ -19,6 +19,12 @@ enum class RideStatus { REQUESTED, DRIVER_ASSIGNED, CONFIRMED, CANCELLED }
  * REQUESTED → DRIVER_ASSIGNED → CONFIRMED, with CANCELLED reachable from the two
  * non-terminal states. Transition methods return whether they were applied, so
  * duplicate or late events degrade to logged no-ops instead of corrupting state.
+ *
+ * Kafka only orders events *within* one topic-partition. PaymentCompleted and
+ * DriverAssigned travel on different topics, so booking may see the payment before the
+ * driver. The aggregate absorbs that: payment is recorded as a fact ([paymentReceived])
+ * and [confirm] succeeds only once both facts are in — whichever arrives last completes
+ * the ride.
  */
 @Entity
 @Table(name = "rides")
@@ -50,11 +56,30 @@ class Ride(
     var cancellationReason: String? = null
         protected set
 
+    @Column(nullable = false)
+    var paymentReceived: Boolean = false
+        protected set
+
     fun assignDriver(driverId: String): Boolean = transition(RideStatus.DRIVER_ASSIGNED, from = setOf(RideStatus.REQUESTED)) {
         this.driverId = driverId
     }
 
-    fun confirm(): Boolean = transition(RideStatus.CONFIRMED, from = setOf(RideStatus.DRIVER_ASSIGNED))
+    /** Records the payment fact; idempotent. Returns false only for rides already finished. */
+    fun recordPayment(): Boolean {
+        if (status == RideStatus.CANCELLED || status == RideStatus.CONFIRMED) {
+            log.warn("ignoring payment for ride {} in terminal state {}", id, status)
+            return false
+        }
+        paymentReceived = true
+        return true
+    }
+
+    fun confirm(): Boolean {
+        if (!paymentReceived) {
+            return false
+        }
+        return transition(RideStatus.CONFIRMED, from = setOf(RideStatus.DRIVER_ASSIGNED))
+    }
 
     fun cancel(reason: String): Boolean = transition(RideStatus.CANCELLED, from = setOf(RideStatus.REQUESTED, RideStatus.DRIVER_ASSIGNED)) {
         this.cancellationReason = reason
