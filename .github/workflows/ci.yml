@@ -26,7 +26,7 @@ jobs:
           java-version: 21
 
       - name: Set up Gradle
-        uses: gradle/actions/setup-gradle@v4
+        uses: gradle/actions/setup-gradle@v6
 
       - name: Build, lint and test (incl. schema compatibility gate)
         run: ./gradlew build
@@ -85,7 +85,7 @@ jobs:
           java-version: 21
 
       - name: Set up Gradle
-        uses: gradle/actions/setup-gradle@v4
+        uses: gradle/actions/setup-gradle@v6
 
       - name: Run e2e against the compose stack
         run: ./scripts/e2e.sh
