@@ -14,4 +14,6 @@ dependencies {
     implementation("io.micrometer:micrometer-core")
 
     testImplementation(libs.mockk)
+    // real MDC adapter in tests — without a binding slf4j falls back to a no-op MDC
+    testRuntimeOnly("ch.qos.logback:logback-classic")
 }

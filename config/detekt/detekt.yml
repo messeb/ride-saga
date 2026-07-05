@@ -4,6 +4,9 @@ build:
 style:
   MagicNumber:
     active: false
+  MaxLineLength:
+    # keep in sync with .editorconfig / ktlint
+    maxLineLength: 140
   ReturnCount:
     max: 3
 
