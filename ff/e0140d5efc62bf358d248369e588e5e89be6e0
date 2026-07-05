@@ -1,0 +1,51 @@
+contracts/src/main/avro/RideRequested.avsc
+  s_1b94a262b63993::t_267cefb5012a13 1-10,12-16
+  s_1b94a262b63993::t_c018b6ba261ea1 11
+contracts/src/main/avro/PaymentCompleted.avsc
+  s_1b94a262b63993::t_af42db313de755 1-14
+contracts/src/main/avro/DriverAssigned.avsc
+  s_1b94a262b63993::t_5a158973f25c92 1-13
+contracts/src/main/avro/RideCancelled.avsc
+  s_1b94a262b63993::t_d58a63988efe28 1-22
+contracts/src/main/avro/DriverAssignmentFailed.avsc
+  s_1b94a262b63993::t_bac73fed4a8808 1-12
+contracts/src/main/avro/PaymentFailed.avsc
+  s_1b94a262b63993::t_4e1129ecf34aa4 1-12
+contracts/build.gradle.kts
+  s_1b94a262b63993::t_4f711a6d44cf87 7-8,10-12
+  s_1b94a262b63993::t_a29069b64597df 9
+contracts/src/test/kotlin/com/messeb/ridesaga/contracts/SchemaCompatibilityTest.kt
+  s_1b94a262b63993::t_d8a195674eeb25 1-62
+contracts/src/main/avro/RideConfirmed.avsc
+  s_1b94a262b63993::t_d70b91b060a38c 1-13
+contracts/src/test/resources/previous-schemas/DriverAssigned.avsc
+  s_1b94a262b63993::t_dfa97a7931ed93 1-13
+contracts/src/test/resources/previous-schemas/DriverAssignmentFailed.avsc
+  s_1b94a262b63993::t_06d4dbf179ea5c 1-12
+contracts/src/test/resources/previous-schemas/PaymentCompleted.avsc
+  s_1b94a262b63993::t_7fb54beb709fed 1-14
+contracts/src/test/resources/previous-schemas/PaymentFailed.avsc
+  s_1b94a262b63993::t_9fe6eb75d9f0d9 1-12
+contracts/src/test/resources/previous-schemas/RideCancelled.avsc
+  s_1b94a262b63993::t_47e82392c04f48 1-22
+contracts/src/test/resources/previous-schemas/RideConfirmed.avsc
+  s_1b94a262b63993::t_b986a96fd9837c 1-13
+contracts/src/test/resources/previous-schemas/RideRequested.avsc
+  s_1b94a262b63993::t_1e565b93eef18b 1-16
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.10",
+  "base_commit_sha": "ffe0140d5efc62bf358d248369e588e5e89be6e0",
+  "prompts": {},
+  "sessions": {
+    "s_1b94a262b63993": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "58e416c0-4e8a-4407-add4-e382038720e1",
+        "model": "claude-fable-5"
+      },
+      "human_author": "Sebastian Messingfeld <sebastian@messeb.com>"
+    }
+  }
+}
