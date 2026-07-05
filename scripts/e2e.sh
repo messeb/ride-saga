@@ -4,7 +4,13 @@
 set -euo pipefail
 cd "$(dirname "$0")/.."
 
-cleanup() { docker compose down -v > /dev/null 2>&1 || true; }
+cleanup() {
+  if [ "${1:-}" != "ok" ]; then
+    echo "==> e2e failed — last service logs:"
+    docker compose logs --tail 60 booking-service driver-matching-service payment-service notification-service || true
+  fi
+  docker compose down -v > /dev/null 2>&1 || true
+}
 trap cleanup EXIT
 
 echo "==> building jars"
@@ -26,3 +32,4 @@ echo "==> failure handling: poison message must reach the DLT"
 
 echo ""
 echo "✅ e2e passed: happy path, compensation and dead-lettering all verified"
+trap 'cleanup ok' EXIT

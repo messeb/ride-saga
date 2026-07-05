@@ -4,6 +4,9 @@ x-service-env: &service-env
   KAFKA_BOOTSTRAP_SERVERS: kafka:29092
   SCHEMA_REGISTRY_URL: http://schema-registry:8081
   OTLP_TRACES_ENDPOINT: http://otel-collector:4318/v1/traces
+  # cap the heap: without it each of the 7 JVMs in this stack claims ~25% of host
+  # memory and the stack thrashes on small machines (e.g. CI runners)
+  JAVA_TOOL_OPTIONS: -Xms128m -Xmx384m
 
 services:
   kafka:
@@ -24,6 +27,7 @@ services:
       KAFKA_TRANSACTION_STATE_LOG_MIN_ISR: 1
       KAFKA_AUTO_CREATE_TOPICS_ENABLE: "true"
       CLUSTER_ID: 5L6g3nShT-eMCtK--X86sw
+      KAFKA_HEAP_OPTS: -Xms256m -Xmx512m
     healthcheck:
       test: ["CMD-SHELL", "/opt/kafka/bin/kafka-broker-api-versions.sh --bootstrap-server localhost:9092 >/dev/null 2>&1"]
       interval: 10s
@@ -44,6 +48,7 @@ services:
       SCHEMA_REGISTRY_LISTENERS: http://0.0.0.0:8081
       # same rule the contracts module tests in CI
       SCHEMA_REGISTRY_SCHEMA_COMPATIBILITY_LEVEL: backward
+      SCHEMA_REGISTRY_HEAP_OPTS: -Xms128m -Xmx256m
     healthcheck:
       test: ["CMD-SHELL", "curl -fs http://localhost:8081/subjects >/dev/null"]
       interval: 10s
@@ -171,6 +176,7 @@ services:
       KAFKA_CLUSTERS_0_NAME: ride-saga
       KAFKA_CLUSTERS_0_BOOTSTRAPSERVERS: kafka:29092
       KAFKA_CLUSTERS_0_SCHEMAREGISTRY: http://schema-registry:8081
+      JAVA_OPTS: -Xms128m -Xmx320m
     depends_on:
       kafka:
         condition: service_healthy
