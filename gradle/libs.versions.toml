@@ -6,8 +6,8 @@ ktlint-plugin = "14.2.0"
 avro = "1.12.1"
 avro-plugin = "1.9.1"
 confluent = "8.3.0"
-testcontainers = "1.21.3"
-mockk = "1.14.3"
+testcontainers = "1.21.4"
+mockk = "1.14.11"
 
 [libraries]
 avro = { module = "org.apache.avro:avro", version.ref = "avro" }
