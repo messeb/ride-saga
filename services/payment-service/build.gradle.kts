@@ -1,5 +1,6 @@
 plugins {
     id("buildlogic.spring-boot-service")
+    alias(libs.plugins.kotlin.jpa)
 }
 
 dependencies {
@@ -10,6 +11,7 @@ dependencies {
     runtimeOnly("org.postgresql:postgresql")
 
     testImplementation(libs.mockk)
+    testImplementation("org.awaitility:awaitility")
     testImplementation(libs.testcontainers.junit)
     testImplementation(libs.testcontainers.kafka)
     testImplementation(libs.testcontainers.postgresql)
