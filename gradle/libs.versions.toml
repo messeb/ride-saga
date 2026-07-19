@@ -1,5 +1,5 @@
 [versions]
-kotlin = "2.4.0"
+kotlin = "2.4.10"
 spring-boot = "4.1.0"
 detekt = "1.23.8"
 ktlint-plugin = "14.2.0"
